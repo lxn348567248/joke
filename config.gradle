@@ -1,0 +1,8 @@
+ext {
+    //compat dependencies
+    compat = [
+            appcompat : "androidx.appcompat:appcompat:1.0.2",
+            constraint: "androidx.constraintlayout:constraintlayout:1.1.3"
+    ]
+
+}
