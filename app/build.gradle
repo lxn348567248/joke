@@ -24,5 +24,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compat.each { k, v ->  implementation v  }
     implementation project(":core")
+    implementation project(":framework")
 
 }
