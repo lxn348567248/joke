@@ -1,5 +1,16 @@
 ext {
     //compat dependencies
+    versions = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "30.0.2",
+            minSdkVersion    : 21,
+            targetSdkVersion : 29
+    ]
+
+    identify = [
+            applicationId: "me.liuningning.joke",
+    ]
+
     compat = [
             appcompat : "androidx.appcompat:appcompat:1.0.2",
             constraint: "androidx.constraintlayout:constraintlayout:1.1.3"

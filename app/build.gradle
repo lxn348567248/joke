@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "30.0.2"
+    compileSdkVersion rootProject.versions.compileSdkVersion
+    buildToolsVersion rootProject.versions.buildToolsVersion
     defaultConfig {
-        applicationId "me.liuningning.joke"
-        minSdkVersion 21
-        targetSdkVersion 29
+        applicationId rootProject.identify.applicationId
+        minSdkVersion rootProject.versions.minSdkVersion
+        targetSdkVersion rootProject.versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
