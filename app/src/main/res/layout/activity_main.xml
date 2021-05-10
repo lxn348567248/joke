@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context="me.liuningning.home.MainActivity">
 
     <TextView
         android:id="@+id/id_main_msg"
@@ -15,8 +15,16 @@
     <TextView
         android:id="@+id/id_main_show"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="单击" />
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="打开" />
+
+    <TextView
+        android:id="@+id/id_load_dex"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="加载" />
 
 
 </LinearLayout>
