@@ -49,9 +49,9 @@ public class GlobalExceptionHandler implements Thread.UncaughtExceptionHandler {
 
         Log.d(TAG, Environment.getExternalStorageState());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            mDumpFileFullPath = mContext.getExternalCacheDir().getAbsolutePath() + File.separator + DIRECTORY_CRASH;
+            mDumpFileFullPath = mContext.getExternalFilesDir(null).getAbsolutePath() + File.separator + DIRECTORY_CRASH;
         } else {
-            mDumpFileFullPath = mContext.getCacheDir().getAbsolutePath() + File.separator + DIRECTORY_CRASH;
+            mDumpFileFullPath = mContext.getFilesDir().getAbsolutePath() + File.separator + DIRECTORY_CRASH;
         }
 
         File rootPath = new File(mDumpFileFullPath);
