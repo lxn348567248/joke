@@ -27,4 +27,14 @@
         android:text="加载" />
 
 
+    <TextView
+        android:id="@+id/id_show_comment"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="显示评论" />
+
+
+
+
 </LinearLayout>
