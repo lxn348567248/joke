@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -15,6 +16,7 @@ import me.liuningning.core.hotfix.HotFixManager;
 import me.liuningning.core.ioc.annoation.OnClick;
 import me.liuningning.core.ioc.annoation.ViewInject;
 import me.liuningning.framework.SkinActivity;
+import me.liuningning.framework.navigator.DefaultNavigator;
 import me.liuningning.joke.R;
 
 public class MainActivity extends SkinActivity {
@@ -35,6 +37,8 @@ public class MainActivity extends SkinActivity {
 
     @Override
     protected void initTitleView() {
+        new DefaultNavigator.Builder(this, null).setTitle("首页")
+                .setRight("发布").build();
 
     }
 
@@ -52,7 +56,7 @@ public class MainActivity extends SkinActivity {
     }
 
 
-    @OnClick(R.id.id_load_dex)
+    @OnClick(R.id.id_main_show)
     public void openHotFix(View view) {
         Intent intent = new Intent(this, HotFixActivity.class);
         startActivity(intent);
