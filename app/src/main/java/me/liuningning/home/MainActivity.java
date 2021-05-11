@@ -4,11 +4,13 @@ package me.liuningning.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import java.io.File;
 
+import me.liuningning.core.dialog.CommonDialog;
 import me.liuningning.core.hotfix.HotFixManager;
 import me.liuningning.core.ioc.annoation.OnClick;
 import me.liuningning.core.ioc.annoation.ViewInject;
@@ -46,6 +48,7 @@ public class MainActivity extends SkinActivity {
     public void loadDex(View view) {
         File dexFile = new File(Environment.getExternalStorageDirectory(), "hotfix.dex");
         HotFixManager.getInstance().load(dexFile.getAbsolutePath());
+
     }
 
 
@@ -53,6 +56,17 @@ public class MainActivity extends SkinActivity {
     public void openHotFix(View view) {
         Intent intent = new Intent(this, HotFixActivity.class);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.id_show_comment)
+    public void showComment(View view) {
+        Log.e(TAG, "showComment");
+        CommonDialog dialog = new CommonDialog.Build(this)
+                .setContentView(R.layout.detail_comment_dialog)
+                .fullWith()
+                .fromBottom(true)
+                .create();
+        dialog.show();
     }
 
 
