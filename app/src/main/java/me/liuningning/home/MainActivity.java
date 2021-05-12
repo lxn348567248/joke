@@ -13,11 +13,14 @@ import java.io.File;
 
 import me.liuningning.core.dialog.CommonDialog;
 import me.liuningning.core.hotfix.HotFixManager;
+import me.liuningning.core.http.HttpUtils;
 import me.liuningning.core.ioc.annoation.OnClick;
 import me.liuningning.core.ioc.annoation.ViewInject;
+import me.liuningning.framework.HttpCallBack;
 import me.liuningning.framework.SkinActivity;
 import me.liuningning.framework.navigator.DefaultNavigator;
 import me.liuningning.joke.R;
+import me.liuningning.mode.DiscoverListResult;
 
 public class MainActivity extends SkinActivity {
     private static final String TAG = "MainActivity";
@@ -71,6 +74,28 @@ public class MainActivity extends SkinActivity {
                 .fromBottom(true)
                 .create();
         dialog.show();
+    }
+
+
+    @OnClick(R.id.id_load_data)
+    public void loadData(View view) {
+        HttpUtils.with(this).url("http://is.snssdk.com/2/essay/discovery/v3/")
+                .addParameter("iid", "6152551759")
+                .addParameter("aid", "7").execute(new HttpCallBack<DiscoverListResult>() {
+            @Override
+            public void onError(Exception e) {
+
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onSuccess(DiscoverListResult result) {
+                // String --> 对象   转换成可操作的对象
+                // 显示列表
+                Log.e("TAG", "name --> " + result.getData().getCategories().getName());
+
+            }
+        });
     }
 
 

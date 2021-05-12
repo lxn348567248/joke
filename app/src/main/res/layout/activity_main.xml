@@ -34,7 +34,12 @@
         android:gravity="center"
         android:text="显示评论" />
 
-
+    <TextView
+        android:id="@+id/id_load_data"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="加载数据" />
 
 
 </LinearLayout>
