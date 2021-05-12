@@ -23,6 +23,7 @@ android {
 def appcompat = rootProject.compat
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.code.gson:gson:2.2.4'
     appcompat.each{k,v->implementation v}
     implementation project(":core")
 }

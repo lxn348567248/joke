@@ -22,5 +22,6 @@ android {
 def appcompat = rootProject.compat
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+     implementation("com.squareup.okhttp3:okhttp:3.12.0")
     appcompat.each{k,v->implementation v}
 }
