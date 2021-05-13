@@ -19,27 +19,29 @@
         android:gravity="center"
         android:text="打开" />
 
-    <TextView
-        android:id="@+id/id_load_dex"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:text="加载" />
-
-
-    <TextView
-        android:id="@+id/id_show_comment"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:text="显示评论" />
-
-    <TextView
-        android:id="@+id/id_load_data"
+    <Button
+        android:id="@+id/id_main_insert"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:gravity="center"
-        android:text="加载数据" />
+        android:text="插入数据" />
 
+    <Button
+        android:id="@+id/id_main_update"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="更新数据" />
+
+
+    <Button
+        android:id="@+id/id_main_delete"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="删除数据" />
+
+    <Button
+        android:id="@+id/id_main_query"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="查询数据" />
 
 </LinearLayout>

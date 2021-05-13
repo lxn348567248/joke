@@ -3,24 +3,19 @@ package me.liuningning.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.File;
+import java.util.List;
 
-import me.liuningning.core.dialog.CommonDialog;
-import me.liuningning.core.hotfix.HotFixManager;
-import me.liuningning.core.http.HttpUtils;
 import me.liuningning.core.ioc.annoation.OnClick;
 import me.liuningning.core.ioc.annoation.ViewInject;
-import me.liuningning.framework.HttpCallBack;
 import me.liuningning.framework.SkinActivity;
+import me.liuningning.framework.db.DaoFactory;
+import me.liuningning.framework.db.IDaoSupport;
 import me.liuningning.framework.navigator.DefaultNavigator;
 import me.liuningning.joke.R;
-import me.liuningning.mode.DiscoverListResult;
 
 public class MainActivity extends SkinActivity {
     private static final String TAG = "MainActivity";
@@ -30,6 +25,7 @@ public class MainActivity extends SkinActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DaoFactory.getInstance().init(this);
 
     }
 
@@ -51,10 +47,8 @@ public class MainActivity extends SkinActivity {
 
     }
 
-    @OnClick(R.id.id_load_dex)
-    public void loadDex(View view) {
-        File dexFile = new File(Environment.getExternalStorageDirectory(), "hotfix.dex");
-        HotFixManager.getInstance().load(dexFile.getAbsolutePath());
+    @Override
+    protected void initData() {
 
     }
 
@@ -65,42 +59,34 @@ public class MainActivity extends SkinActivity {
         startActivity(intent);
     }
 
-    @OnClick(R.id.id_show_comment)
-    public void showComment(View view) {
-        Log.e(TAG, "showComment");
-        CommonDialog dialog = new CommonDialog.Build(this)
-                .setContentView(R.layout.detail_comment_dialog)
-                .fullWith()
-                .fromBottom(true)
-                .create();
-        dialog.show();
+
+    @OnClick(R.id.id_main_insert)
+    public void insertData(View view) {
+        IDaoSupport<Person> dao = DaoFactory.getInstance().getDao(Person.class);
+        dao.insert(new Person("love", 32, 167));
+
+    }
+
+    @OnClick(R.id.id_main_update)
+    public void updateData(View view) {
+        IDaoSupport<Person> dao = DaoFactory.getInstance().getDao(Person.class);
+        dao.update(new Person("plmm", 35, 167), "id=?", "1");
+    }
+
+    @OnClick(R.id.id_main_delete)
+    public void deleteData(View view) {
+        IDaoSupport<Person> dao = DaoFactory.getInstance().getDao(Person.class);
+        dao.delete("id=?", "1");
     }
 
 
-    @OnClick(R.id.id_load_data)
-    public void loadData(View view) {
-        HttpUtils.with(this).url("http://is.snssdk.com/2/essay/discovery/v3/")
-                .addParameter("iid", "6152551759")
-                .addParameter("aid", "7").execute(new HttpCallBack<DiscoverListResult>() {
-            @Override
-            public void onError(Exception e) {
+    @OnClick(R.id.id_main_query)
+    public void queryData(View view) {
 
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onSuccess(DiscoverListResult result) {
-                // String --> 对象   转换成可操作的对象
-                // 显示列表
-                Log.e("TAG", "name --> " + result.getData().getCategories().getName());
-
-            }
-        });
+        IDaoSupport<Person> dao = DaoFactory.getInstance().getDao(Person.class);
+        List<Person> personList = dao.getQuerySupport().query();
+        Log.d("TAG", personList.toString());
     }
 
 
-    @Override
-    protected void initData() {
-
-    }
 }

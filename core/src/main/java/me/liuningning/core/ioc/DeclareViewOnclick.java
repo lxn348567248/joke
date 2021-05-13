@@ -19,7 +19,7 @@ class DeclareViewOnclick implements View.OnClickListener {
             mInvokeMethod.setAccessible(true);
             mInvokeMethod.invoke(mTarget, v);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
     }
