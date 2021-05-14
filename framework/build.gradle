@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.versions.compileSdkVersion
-    buildToolsVersion rootProject.versions.buildToolsVersion
+    compileSdkVersion Versions.comileSdk
+    buildToolsVersion Versions.buildVersion
     defaultConfig {
-        minSdkVersion rootProject.versions.minSdkVersion
-        targetSdkVersion rootProject.versions.targetSdkVersion
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
         versionCode 1
         versionName "1.0"
     }
@@ -20,10 +20,9 @@ android {
 
 }
 
-def appcompat = rootProject.compat
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.code.gson:gson:2.2.4'
-    appcompat.each{k,v->implementation v}
+    implementation Libs.appcompat
+    implementation Libs.gson
     implementation project(":core")
 }

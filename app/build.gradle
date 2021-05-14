@@ -1,12 +1,16 @@
+import Identify
+import Libs
+import Versions
+
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.versions.compileSdkVersion
-    buildToolsVersion rootProject.versions.buildToolsVersion
+    compileSdkVersion Versions.comileSdk
+    buildToolsVersion Versions.buildVersion
     defaultConfig {
-        applicationId rootProject.identify.applicationId
-        minSdkVersion rootProject.versions.minSdkVersion
-        targetSdkVersion rootProject.versions.targetSdkVersion
+        applicationId Identify.appId
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
         versionCode 1
         versionName "1.0"
         multiDexEnabled false
@@ -19,11 +23,11 @@ android {
         }
     }
 }
-def compat = rootProject.compat
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compat.each { k, v ->  implementation v  }
+    implementation Libs.appcompat
+    implementation Libs.constraint_layout
     implementation project(":core")
     implementation project(":framework")
 
