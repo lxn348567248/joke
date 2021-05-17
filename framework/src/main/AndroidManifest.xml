@@ -1,2 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.liuningning.framework" />
+    package="me.liuningning.framework" >
+
+    <application>
+        <activity android:name=".SkinActivity" />
+    </application>
+</manifest>

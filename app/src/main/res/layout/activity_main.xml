@@ -6,11 +6,27 @@
     android:orientation="vertical"
     tools:context="me.liuningning.home.MainActivity">
 
+    <ImageView
+        android:id="@+id/ic_load_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_others" />
+
+    <TextView
+        android:id="@+id/id_change_image"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#ff00cc"
+        android:gravity="center"
+        android:text="加载图片"
+        android:textColor="#ff0000" />
+
     <TextView
         android:id="@+id/id_main_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello World!"
+        android:textColor="#00ff00" />
 
     <TextView
         android:id="@+id/id_main_show"
@@ -19,29 +35,12 @@
         android:gravity="center"
         android:text="打开" />
 
-    <Button
-        android:id="@+id/id_main_insert"
+    <TextView
+        android:id="@+id/id_main_load_skin"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="插入数据" />
+        android:gravity="center"
+        android:text="加载皮肤" />
 
-    <Button
-        android:id="@+id/id_main_update"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="更新数据" />
-
-
-    <Button
-        android:id="@+id/id_main_delete"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="删除数据" />
-
-    <Button
-        android:id="@+id/id_main_query"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="查询数据" />
 
 </LinearLayout>
